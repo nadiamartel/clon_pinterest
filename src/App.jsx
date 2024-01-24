@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { createApi } from "unsplash-js";
 import Navbar from './components/Navbar';
+import Masonry from '@mui/lab/Masonry';
 
 
 const api = createApi({
@@ -18,7 +19,7 @@ function App() {
 
   useEffect(() => {
     api.search
-      .getPhotos({ query: "cat" })
+      .getPhotos({ query: "cat", perPage: 20 })
       .then(result => {
         setData(result.response.results);
       })
@@ -31,11 +32,13 @@ function App() {
     <div>
       <h2>Buen dia!</h2>
       <Navbar />
-      {
-        data.map(item =>(
-          <img key={item.id} src={item.urls.small} alt={item.description} />
-        ))
-      }
+      <Masonry columns={4} spacing={2}>
+        {
+          data.map(item => (
+            <img key={item.id} src={item.urls.small} alt={item.description} />
+          ))
+        }
+      </Masonry>
     </div>
   )
 }
