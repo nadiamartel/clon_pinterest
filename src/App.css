@@ -82,7 +82,7 @@
   -webkit-line-clamp: 2;
   white-space: pre-wrap;
 }
-.masonry .item img.user {
+.masonry .item img.usuario {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -100,10 +100,10 @@
   align-items: center;
   gap: 8px;
 }
-.masonry .item .image {
+.masonry .item .imagen {
   position: relative;
 }
-.masonry .item .image .btn-save {
+.masonry .item .imagen .btn-save {
   background-color: #e60023;
   color: #fff;
   font-weight: 600;
@@ -115,37 +115,37 @@
   top: 12px;
   display: none;
 }
-.masonry .item .image:hover .btn-save {
+.masonry .item .imagen:hover .btn-save {
   display: block;
 }
-.masonry .item .image .btn-save:hover {
+.masonry .item .imagen .btn-save:hover {
   background-color: #c3001e;
 }
-.masonry .item .image:hover > img  {
+.masonry .item .imagen:hover > img  {
   filter: brightness(65%);
 }
-.masonry .item .image .icon-upload,
-.masonry .item .image .icon-dots {
+.masonry .item .imagen .icon-upload,
+.masonry .item .imagen .icon-dots {
   position: absolute;
   width: 31px;
   height: 31px;
   bottom: 11px;
   display: none;
 }
-.masonry .item .image:hover .icon-upload {
+.masonry .item .imagen:hover .icon-upload {
   display: block;
 }
-.masonry .item .image:hover .icon-dots {
+.masonry .item .imagen:hover .icon-dots {
   display: block;
 }
-.masonry .item .image .icon-dots{
+.masonry .item .imagen .icon-dots{
   right: 11px;
 }
-.masonry .item .image .icon-upload {
+.masonry .item .imagen .icon-upload {
   right: 53px;
 }
-.masonry .item .image .icon-upload img:hover,
-.masonry .item .image .icon-dots img:hover{
+.masonry .item .imagen .icon-upload img:hover,
+.masonry .item .imagen .icon-dots img:hover{
   filter: brightness(112%);
 }
 

@@ -32,10 +32,19 @@ function App() {
     <div>
       <h2>Buen dia!</h2>
       <Navbar />
-      <Masonry columns={4} spacing={2}>
+      <Masonry columns={4} spacing={2} className='masonry'>
         {
           data.map(item => (
-            <img key={item.id} src={item.urls.small} alt={item.description} />
+            <div key={item.id} className='item'>
+              <div className='imagen'>
+                <img src={item.urls.small} alt={item.description} />
+              </div>
+              <p>{item.description}</p>
+              <div>
+                <img  className='usuario' src={item.user.profile_image.small} alt="" />
+                <span>{item.user.name}</span>
+              </div>
+            </div>
           ))
         }
       </Masonry>
