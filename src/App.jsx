@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { createApi } from "unsplash-js";
 import Navbar from './components/Navbar';
 import Masonry from '@mui/lab/Masonry';
+import Card from './components/card';
 
 
 const api = createApi({
@@ -35,16 +36,7 @@ function App() {
       <Masonry columns={4} spacing={2} className='masonry'>
         {
           data.map(item => (
-            <div key={item.id} className='item'>
-              <div className='imagen'>
-                <img src={item.urls.small} alt={item.description} />
-              </div>
-              <p>{item.description}</p>
-              <div>
-                <img  className='usuario' src={item.user.profile_image.small} alt="" />
-                <span>{item.user.name}</span>
-              </div>
-            </div>
+            <Card key={item.id} item={item}/>
           ))
         }
       </Masonry>
