@@ -1,9 +1,10 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createApi } from "unsplash-js";
 import Navbar from './components/Navbar';
-import Masonry from '@mui/lab/Masonry';
 import Card from './components/card';
+import Masonry from '@mui/lab/Masonry';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 
 const api = createApi({
@@ -18,25 +19,37 @@ function App() {
   const [data, setData] = useState([]);
   console.log("data: ", data);
 
+  const index = useRef(1);
+
   useEffect(() => {
     api.search
-      .getPhotos({ query: "cat", perPage: 20 })
+      .getPhotos({ query: "cat", perPage: 20, page: index.current })
       .then(result => {
-        setData(result.response.results);
+        setData(data.concat(result.response.results));
       })
       .catch(() => {
         console.log("something went wrong!");
       });
   }, []);
 
+  const fetchData = () =>{
+    index.current = index.current + 1;
+  }
+
   return (
     <div>
-      <h2>Buen dia!</h2>
       <Navbar />
+      <InfiniteScroll
+        dataLength={data.length} //This is important field to render the next data
+        next={fetchData}
+        hasMore={true}
+        loader={<h4>Loading...</h4>}
+      >
+      </InfiniteScroll>
       <Masonry columns={4} spacing={2} className='masonry'>
         {
           data.map(item => (
-            <Card key={item.id} item={item}/>
+            <Card key={item.id} item={item} />
           ))
         }
       </Masonry>

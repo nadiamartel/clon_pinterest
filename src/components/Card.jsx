@@ -7,7 +7,7 @@ const Card = ({ item }) => {
             </div>
             <p>{item.description}</p>
             <div>
-                <img className='usuario' src={item.user.profile_image.small} alt="" />
+                <img className='usuario' src={item.user.profile_image.small} alt={item.user.name} />
                 <span>{item.user.name}</span>
             </div>
         </div>
