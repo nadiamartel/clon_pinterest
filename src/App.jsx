@@ -19,13 +19,13 @@ function App() {
   const [data, setData] = useState([]);
   console.log("data: ", data);
 
-  const index = useRef(1);
+  let index = useRef(1); //useRef para que no vuelva a renderizarze!
 
   useEffect(() => {
     api.search
-      .getPhotos({ query: "cat", perPage: 20, page: index.current })
+      .getPhotos({ query: "dog", perPage: 20, page: index.current })
       .then(result => {
-        setData(data.concat(result.response.results));
+        setData(data.concat(result.response.results)); //concatenar para no borrar lo anterior
       })
       .catch(() => {
         console.log("something went wrong!");
@@ -46,7 +46,7 @@ function App() {
         loader={<h4>Loading...</h4>}
       >
       </InfiniteScroll>
-      <Masonry columns={4} spacing={2} className='masonry'>
+      <Masonry columns={5} spacing={2} className='masonry'>
         {
           data.map(item => (
             <Card key={item.id} item={item} />

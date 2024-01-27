@@ -75,8 +75,8 @@
   margin-bottom: 3px;
   font-weight: 500;
   font-size: 14px;
-
-  overflow: hidden;
+  /* para ajustar la descrip a 2 lineas nomas */
+  overflow: hidden; 
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
