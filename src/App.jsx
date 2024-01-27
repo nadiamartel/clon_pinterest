@@ -28,7 +28,7 @@ function App() {
         setData(data.concat(result.response.results)); //concatenar para no borrar lo anterior
       })
       .catch(() => {
-        console.log("something went wrong!");
+        console.log("algo salio mal!");
       });
   }, []);
 

@@ -1,6 +1,17 @@
+import { useState } from "react";
 import Logo from "../utils/Logo";
 
 const Navbar = () => {
+
+    const [value, setValue] = useState("cat");
+
+    //para que tengamos que presionar enter para buscar
+    const handleKey = (event) =>{
+        if(event.key === "enter"){
+            console.log("presionar enter", value);
+        }
+    }
+
     return(
         <div className="navbar">
             <ul>
@@ -8,7 +19,12 @@ const Navbar = () => {
                 <li><a href="">Inicio</a></li>
                 <li><a href="">Explorar</a></li>
                 <li><a href="">Crear</a></li>
-                <li><input type="search" /></li>
+                <li><input 
+                    type="search"  
+                    onChange={event => setValue(event.target.value)}
+                    placeholder="Buscar"
+                    onKeyDown={handleKey}
+                    /></li>
                 <li><a href="">Usuario</a></li>
             </ul>
         </div>
