@@ -1,14 +1,18 @@
 import { useState } from "react";
 import Logo from "../utils/Logo";
+import { useBookStore } from "../store/bookStore";
 
 const Navbar = () => {
 
     const [value, setValue] = useState("cat");
 
+    const updateValue = useBookStore(state => state.updateValue)
+
     //para que tengamos que presionar enter para buscar
     const handleKey = (event) =>{
         if(event.key === "enter"){
-            console.log("presionar enter", value);
+            // console.log("presionar enter", value);
+            updateValue(value);
         }
     }
 

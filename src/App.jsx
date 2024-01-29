@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Card from './components/card';
 import Masonry from '@mui/lab/Masonry';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { useBookStore } from './store/bookStore';
 
 
 const api = createApi({
@@ -17,9 +18,13 @@ const api = createApi({
 function App() {
 
   const [data, setData] = useState([]);
-  console.log("data: ", data);
-
+  
   let index = useRef(1); //useRef para que no vuelva a renderizarze!
+  
+  const valueRef = useBookStore(state => state.value) //para recuperar el EG
+  
+  console.log("data: ", data);
+  console.log("valueRef", valueRef);
 
   useEffect(() => {
     api.search
