@@ -10,7 +10,7 @@ const Navbar = () => {
 
     //para que tengamos que presionar enter para buscar
     const handleKey = (event) =>{
-        if(event.key === "enter"){
+        if(event.key === "Enter"){
             // console.log("presionar enter", value);
             updateValue(value);
         }

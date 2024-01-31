@@ -28,14 +28,14 @@ function App() {
 
   useEffect(() => {
     api.search
-      .getPhotos({ query: "dog", perPage: 20, page: index.current })
+      .getPhotos({ query: valueRef, perPage: 20, page: index.current })
       .then(result => {
         setData(data.concat(result.response.results)); //concatenar para no borrar lo anterior
       })
       .catch(() => {
         console.log("algo salio mal!");
       });
-  }, []);
+  }, [valueRef]);
 
   const fetchData = () =>{
     index.current = index.current + 1;
