@@ -51,7 +51,10 @@ function App() {
         loader={<h4>Loading...</h4>}
       >
       </InfiniteScroll>
-      <Masonry columns={5} spacing={2} className='masonry'>
+      <Masonry 
+        columns={{ xs:2, sm:3, md:5 }} 
+        spacing={{ xs:1, sm:2, md:3 }} 
+        className='masonry'>
         {
           data.map(item => (
             <Card key={item.id} item={item} />
