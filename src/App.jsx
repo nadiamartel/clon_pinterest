@@ -11,7 +11,7 @@ import { useBookStore } from './store/bookStore';
 const api = createApi({
   // Don't forget to set your access token here!
   // See https://unsplash.com/developers
-  accessKey: "KmBSAXr0mhOY3_Uxy_0-LCJ00lSAJxk47yGHh-I5qtY"
+  accessKey: import.meta.env.VITE_ACCESS_KEY
 });
 
 
@@ -20,6 +20,8 @@ function App() {
   const [data, setData] = useState([]);
   
   let index = useRef(1); //useRef para que no vuelva a renderizarze!
+
+  console.log("key: ",import.meta.env.VITE_ACCESS_KEY );
   
   const valueRef = useBookStore(state => state.value) //para recuperar el EG
   
