@@ -2,7 +2,7 @@ import './App.css';
 import { useEffect, useRef, useState } from 'react';
 import { createApi } from "unsplash-js";
 import Navbar from './components/Navbar';
-import Card from './components/card';
+import Card from './components/Card';
 import Masonry from '@mui/lab/Masonry';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useBookStore } from './store/bookStore';
