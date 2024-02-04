@@ -20,8 +20,6 @@ function App() {
   const [data, setData] = useState([]);
   
   let index = useRef(1); //useRef para que no vuelva a renderizarze!
-
-  console.log("key: ",import.meta.env.VITE_ACCESS_KEY );
   
   const valueRef = useBookStore(state => state.value) //para recuperar el EG
   
@@ -50,7 +48,7 @@ function App() {
         dataLength={data.length} //This is important field to render the next data
         next={fetchData}
         hasMore={true}
-        loader={<h4>Loading...</h4>}
+        // loader={<h4>Loading...</h4>}
       >
       </InfiniteScroll>
       <Masonry 
